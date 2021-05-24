@@ -1,0 +1,85 @@
+{% if ISBOARD %}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+{% INCLUDECSS '@adrianb11_listmanager/boardlist.css' %}
+{% INCLUDEJS '@adrianb11_listmanager/postloader.js' %}
+
+<br />
+<div class="forabg">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner">{{ lang('LISTMANAGER_TITLE') }}</div>
+					</dt>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums  list-manager-list">
+			<div class="row container-scroll">
+			{# START FORUM HTML #}
+			{% for lists in loops.lists %}
+				<div class="forabg list-manager-list-body">
+					<div class="inner">
+						<ul class="topiclist">
+							<li class="header">
+								<dl class="row-item">
+									<dt>
+										<div class="list-inner">{{ lists.FORUM_NAME }}</div>
+									</dt>
+								</dl>
+							</li>
+						</ul>
+						<ul class="topiclist forums">
+						{# START TOPIC #}
+						{% for topics in loops.topics %}
+							{% if topics.FORUM_ID == lists.FORUM_ID %}
+							<li class="row" onclick="loadcontent({{ lists.FORUM_ID }}, {{ topics.TOPIC_ID }})">
+								<dl class="row-item">
+									<dt class="margin-right">
+										<div class="list-inner list-manager-card">
+											<strong>{{ topics.TOPIC_TITLE }}</strong>
+										</div>
+									</dt>
+								</dl>
+							</li>
+							{% endif %}
+						{% endfor %}
+						{# END TOPIC #}
+							<li class="row" onclick="loadcontent({{ lists.FORUM_ID }}, {{ topics.TOPIC_ID }})">
+								<dl class="row-item">
+									<dt class="margin-right">
+										<div class="list-inner list-manager-card">
+											<img src="{{ PLUS_ICON_PNG }}" class="create-card-body-image" />
+											<strong>{{ lang('LISTMANAGER_CREATE_CARD_TITLE') }}</strong>
+										</div>
+									</dt>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</div>
+			{% endfor %}
+			{# END FORUM #}
+			</div>
+		</ul>
+	</div>
+</div>
+
+
+
+<div id="list-manager-view-card" style="display: none;">
+	<div id="list-manager-view-card-bg" onclick="closecontent()">
+		&nbsp;
+	</div>
+	<div id="newcard" class="list-manager-view-card-body" style="display: block;">
+		<div class="alert_text">
+			<div id="elementreplace">
+				{{ lang('LISTMANAGER_TOPIC_LOADING_TEXT') }}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endif %}

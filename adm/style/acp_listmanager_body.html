@@ -1,0 +1,47 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_LISTMANAGER_TITLE') }}</h1>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form id="adrianb11_listmanager_acp" name="adrianb11_listmanager_acp" method="post" action="{{ U_ACTION }}">
+
+	<fieldset>
+		<legend>{{ lang('SETTINGS') }}</legend>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_VERSION') ~ lang('COLON') }}</label>
+			</dt>
+			<dd>
+				<strong>{{ LISTMANAGER_VERSION }}</strong>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label for="adrianb11_listmanager_enabled">{{ lang('ACP_LISTMANAGER_ENABLED') ~ lang('COLON') }}</label>
+			</dt>
+			<dd>
+				<label>
+					<input type="radio" class="radio" id="adrianb11_listmanager_enabled" name="adrianb11_listmanager_enabled" value="1"{% if LISTMANAGER_ENABLED %} checked="checked"{% endif %} /> {{ lang('YES') }}
+				</label>
+				<label>
+					<input type="radio" class="radio" name="adrianb11_listmanager_enabled" value="0"{% if not LISTMANAGER_ENABLED %} checked="checked"{% endif %} /> {{ lang('NO') }}
+				</label>
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="submit" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+
+</form>
+
+{% include 'overall_footer.html' %}

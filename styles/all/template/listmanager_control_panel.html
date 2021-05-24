@@ -1,0 +1,64 @@
+{% include 'overall_header.html' %}
+
+<h2>{{ lang('LISTMANAGER_PAGE') }}</h2>
+{% if BOARDS_EXIST %}
+	<div class="panel bg1">
+		<div class="inner">
+			<h2 class="solo">{{ lang('LISTMANAGER_VIEW_BOARDS') }}</h2>
+			<div class="forumbg forumbg-table">
+				<div class="inner">
+					<table class="table1 show-header responsive">
+						<thead>
+							<tr>
+								<th class="info">{{ lang('LISTMANAGER_FORUM_NAME') }}</th>
+								<th class="info">{{ lang('LISTMANAGER_FORUM_DESC') }}</th>
+								<th class="info">{{ lang('LISTMANAGER_FORUM_ACTION') }}</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for forums in loops.forums %}
+							<tr class="bg1">
+								<td>
+									{{ forums.NAME }}
+								</td>
+								<td class="info">
+									{{ forums.DESC }}
+								</td>
+								<td class="info">
+									<a href="{{ forums.URL }}" style="text-decoration: none;"><i class="icon acp-icon acp-icon-move-up fa-arrow-circle-up fa-fw" title="{{ lang('LISTMANAGER_VIEW_BOARD') }}"></i></a>
+									<i style="display:none" class="icon acp-icon acp-icon-settings fa-cog fa-fw" title="Edit"></i>
+									{% if ACL_DELETE_BOARD %}
+										<a href="{{ forums.REMOVE_URL }}" style="text-decoration: none;"><i class="icon acp-icon acp-icon-delete fa-times-circle fa-fw" title="{{ lang('LISTMANAGER_DELETE_BOARD') }}"></i></a>
+									{% endif %}
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if CATEGORY_BOX %}
+	<form id="postform" method="post" action="{{ U_ACTION }}">
+		<div class="panel bg2">
+			<div class="inner">
+				<h2 class="solo">{{ lang('LISTMANAGER_CREATE_BOARDS') }}</h2>
+				<select id="forum_id" name="forum_id" size="10">{{ CATEGORY_BOX }}</select>
+			</div>
+		</div>
+
+		<div class="panel">
+			<div class="inner">
+				<fieldset class="submit-buttons">
+					{{ S_HIDDEN_FIELDS }}
+					<input type="submit" accesskey="s" name="submit" value="{{ lang('SUBMIT') }}" class="button1" />
+				</fieldset>
+			</div>
+		</div>	
+	</form>
+{% endif %}
+
+{% include 'overall_footer.html' %}

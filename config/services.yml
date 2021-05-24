@@ -1,0 +1,48 @@
+services:
+    adrianb11.listmanager.controller.board.manage:
+        class: adrianb11\listmanager\controller\board_manage_controller
+        arguments:
+            - '@controller.helper'
+            - '@template'
+            - '@auth'
+            - '@dbal.conn'
+            - '@path_helper'
+            - '@request'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '@language'
+
+    adrianb11.listmanager.listener:
+        class: adrianb11\listmanager\event\main_listener
+        arguments:
+            - '@language'
+            - '@controller.helper'
+            - '@template'
+            - '@request'
+            - '@adrianb11.listmanager.boards'
+            - '@auth'
+        tags:
+            - { name: event.listener }
+
+    adrianb11.listmanager.boards:
+        class: adrianb11\listmanager\core\boards
+        arguments:
+            - '@template'
+            - '@auth'
+            - '@dbal.conn'
+            - '%core.root_path%'
+            
+    adrianb11.listmanager.controller.card:
+        class: adrianb11\listmanager\controller\card_controller
+        arguments:
+            - '@controller.helper'
+            - '@template'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '@user'
+            - '@auth'
+            - '@request'
+            - '@content.visibility'
+            - '@dbal.conn'
+            - '@config'
+            - '@cache'

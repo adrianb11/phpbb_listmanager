@@ -1,0 +1,70 @@
+.container-scroll {
+	overflow-x: auto;
+	white-space: nowrap;
+	max-height: 500px;
+}
+
+.list-manager-list-body {
+	border-radius: 0px;
+	border: 1px solid #eee;
+	width: 300px;
+	display: inline-block;
+	float: none;
+	vertical-align: top;
+}
+
+.list-manager-list {
+	padding: 10px 5px 10px 5px;
+}
+
+.list-manager-card {
+	padding-left: 10px !important;
+}
+
+.margin-right {
+	margin-right: 0px !important;
+}
+
+.create-card-body-image {
+	max-block-size: -webkit-fill-available;
+	padding: 0px 10px 0px 10px;
+	height: 25px;
+}
+
+.list-manager-view-card-body {
+	border: 1px solid transparent;
+	display: none;
+	left: 0;
+	padding: 0px 25px 0px 25px;
+	position: fixed;
+	right: 0;
+	top: 10%;
+	z-index: 50;
+	width: 80vw;
+	max-width: 620px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+#list-manager-view-card {
+	display: block;
+	position: relative;
+	z-index: 44;
+}
+
+#list-manager-view-card-bg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	opacity: 0.5;
+	z-index: 45;
+}
+
+#elementreplace {
+	padding: 25px 0px 25px 0px;
+}

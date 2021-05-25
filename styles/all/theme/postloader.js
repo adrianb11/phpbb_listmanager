@@ -1,11 +1,11 @@
 function loadcontent(f, t)
 {
 	let $listmanagercard = $('#list-manager-view-card');
-	$("#elementreplace").load('./listmanager/get/topic?f=' + f + '&t=' + t);
+	$("#elementreplace").load('./app.php/listmanager/get/topic?f=' + f + '&t=' + t);
 	$listmanagercard.fadeIn(100, function() {
 		$listmanagercard.show();
 	});
-	$('body').css('overflow','hidden')
+	$('body').css('overflow','hidden');
 }
 
 function closecontent()
@@ -15,5 +15,5 @@ function closecontent()
 		$listmanagercard.hide();
 	});
 	$("#elementreplace").html("Please wait while the topic is loading...");
-	$('body').css('overflow','auto')
+	$('body').css('overflow','auto');
 }

@@ -3,13 +3,13 @@
     "type": "phpbb-extension",
     "description": "",
     "homepage": "http://phpbb.adrianb11.me.uk/listmanager/",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "time": "2021-05-07",
     "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "AdrianB",
-            "homepage": "http://adrianb11.me.uk/",
+            "homepage": "http://adrianb11.me.uk/"
         }
     ],
     "require": {

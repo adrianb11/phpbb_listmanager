@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.1.2](https://github.com/adrianb11/phpbb_listmanager/tree/v0.1.2) (2021-05-25)
+
+###Fixed
+- Corrected issue with composer.json
+
+###Updated
+- Update version number to v0.1.2
+
+[Full Changelog](https://github.com/adrianb11/phpbb_listmanager/compare/v0.1.1...v0.1.2)
+
 ## [v0.1.1](https://github.com/adrianb11/phpbb_listmanager/tree/v0.1.1) (2021-05-25)
 ###Added
 - CHANGELOG.md

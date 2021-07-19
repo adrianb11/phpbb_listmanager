@@ -17,9 +17,50 @@ Currently, cards can only be viewed and any replies need to be made in the actua
 BBCodes, attachments, smilies, and signatures are all displayed as though the topic was viewed directly.
 
 ## User Guide
+![](https://i.ibb.co/BT1PHG2/List-Manager-CP.png)  
+* **View Board**
+  * All sub-forums are displayed as lists.
+  * Each list contains all topics in the forums.
+![](https://i.ibb.co/XksKpQZ/View-Board.png)
+
+* **View Card**
+  * Clicking on a card will display a new element with the topic contents.
+  * Clicking outside of the new element will close it and return to the board.
+![](https://i.ibb.co/hRhmZZX/Card-Display.png)
+
+* **List Manager CP**
+  * Manage Current Boards
+    * Displays all boards which have been created.  Action column has buttons to view board which will take you directly to the forum, and a delete board button.
+  * Create New Board
+    * A select box is displayed with all forums/categories in a list.  Selecting an entry and submitting will add the selected forum/category as a new board.
+    
 * **Settings**
   * In the ACP, view the extensions configuration page `Extensions -> List Manager Module`. 
     * `Is the module enabled? - Yes / No` - Sets whether the module is enabled or not.  Setting to Yes will show any boards created and display the `List Manager CP` navbar link.
+  * **Theme Specific Settings**
+    * Various settings to change how the page is displayed and how the JS interacts with the page.
+      * `Length of time to fade background`
+      * `Array of html elements and CSS changes to apply when fading out the background`
+      * `Array of html elements and CSS changes to apply when fading in the background`
+      * `Should the post profile element be displayed?`
+      * `List of elements to remove if the post profile is not shown`
+      * `Array of html elements and CSS changes to apply when removing the post profile`
+      * `List of elements to remove when viewing topics`
+      * `Array of html elements and CSS changes to apply when viewing a topic`
+      * `List of elements to remove when creating a new post`
+      * `Array of html elements and CSS changes to apply when creating a new topic`
+      * `List of elements to remove when submitting a form`
+      * `List of button names which should be watched when submitting forms`
+      * `JavaScript to correctly select the button or <a> element when clicking a submit button`
+      * `Array of html elements and CSS changes to apply when submitting a form`
+      * `List of elements to remove when loading drafts`
+      * `List of button names which should be watched to post a reply`
+      * `JavaScript to correctly select the button or <a> element when clicking a post reply button`
+      * `List of button names which should be watched when reloading a card`
+      * `JavaScript to correctly select the button or <a> element when clicking a post button`
+![](https://i.ibb.co/pyCVrfd/List-Manager-Settings-01.png)
+![](https://i.ibb.co/ZNt8689/List-Manager-Settings-02.png)
+
 * **Permissions**
   * Administrators
     * `List Manager - Can use the List Manager admin feature?`:- Can this group change the extension settings?
@@ -30,20 +71,6 @@ BBCodes, attachments, smilies, and signatures are all displayed as though the to
     * `List Manager - Can delete boards?`:- Can this group remove boards?
     * `List Manager - Can view boards?`:- Can this group view boards?
 ![](https://i.ibb.co/rv3HJJg/User-Group-Permissions.png)
-* **List Manager CP**
-  * Manage Current Boards
-    * Displays all boards which have been created.  Action column has buttons to view board which will take you directly to the forum, and a delete board button.
-  * Create New Board
-    * A select box is displayed with all forums/categories in a list.  Selecting an entry and submitting will add the selected forum/category as a new board.
-![](https://i.ibb.co/BT1PHG2/List-Manager-CP.png)  
-* **View Board**
-  * All sub-forums are displayed as lists.
-  * Each list contains all topics in the forums.
-![](https://i.ibb.co/XksKpQZ/View-Board.png)
-* **View Card**
-  * Clicking on a card will display a new element with the topic contents.
-  * Clicking outside of the new element will close it and return to the board.
-![](https://i.ibb.co/hRhmZZX/Card-Display.png)
 
 ## Install
 1. [Download the latest release](https://github.com/adrianb11/phpbb_listmanager/releases).

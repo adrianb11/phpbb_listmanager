@@ -9,7 +9,3 @@ adrianb11_listmanager_add_board:
 adrianb11_listmanager_remove_board:
     path: /listmanager/remove/{id}
     defaults: { _controller: adrianb11.listmanager.controller.board.manage:remove_board }
-
-adrianb11_listmanager_get_topic:
-    path: /listmanager/get/topic
-    defaults: { _controller: adrianb11.listmanager.controller.card:handle }

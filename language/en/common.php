@@ -61,4 +61,5 @@ $lang = array_merge($lang, [
 	'LISTMANAGER_NO_FORUM_SELECTED'					=> 'No forum has selected.',
 	'LISTMANAGER_FORUM_ID_NOT_FOUND'				=> 'Forum id %s has not been found.',
 	'LISTMANAGER_FORM_KEY_INVALID'					=> 'Invalid form key supplied.',
+	'LISTMANAGER_NO_CARDS'							=> 'No cards to display.',
 ]);

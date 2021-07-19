@@ -1,0 +1,59 @@
+<div id="{{ lists.FORUM_ID }}" class="forabg list-manager-list-body">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner">{{ lists.FORUM_NAME }}</div>
+					</dt>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			{# START TOPIC #}
+			{% for list_topics in lists.list_topics %}
+				{% if not list_topics.NO_TOPICS %}
+					<li class="row {% if list_topics.U_VIEW_TOPIC %} viewpostcontent {% endif %}" data-id="f={{ lists.FORUM_ID }}&t={{ list_topics.TOPIC_ID }}">
+						<dl class="row-item">
+							<dt class="margin-right">
+								<div class="list-inner list-manager-card-list">
+									<strong>{{ list_topics.TOPIC_TITLE }}</strong>
+								</div>
+							</dt>
+						</dl>
+					</li>
+
+				{% else %}
+				{# NO TOPICS #}
+					<li class="row ">
+						<dl class="row-item">
+							<dt class="margin-right">
+								<div class="list-inner list-manager-card-list">
+									<strong>{{ lang('LISTMANAGER_NO_CARDS') }}</strong>
+								</div>
+							</dt>
+						</dl>
+					</li>
+				{# NO TOPICS #}
+				{% endif %}
+
+			{% endfor %}
+			{# END TOPIC #}
+
+			{# CREATE NEW TOPIC BUTTON #}
+			{% if lists.U_POST_NEW_TOPIC %}
+				<li class="row newpostcontent" data-id="f={{ lists.FORUM_ID }}">
+					<dl class="row-item">
+						<dt class="margin-right">
+							<div class="list-inner list-manager-card-list">
+								<img src="{{ PLUS_ICON_PNG }}" class="create-card-body-image" />
+								<strong>{{ lang('LISTMANAGER_CREATE_CARD_TITLE') }}</strong>
+							</div>
+						</dt>
+					</dl>
+				</li>
+			{% endif %}
+			{# CREATE NEW TOPIC BUTTON #}
+		</ul>
+	</div>
+</div>

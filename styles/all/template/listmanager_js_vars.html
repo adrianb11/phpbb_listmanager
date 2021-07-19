@@ -1,0 +1,48 @@
+{# Setup variables used in JS #}
+<script type="application/javascript">
+	function listToArray(fullString, separator) {
+		let fullArray = [];
+
+		if (fullString !== undefined) {
+			if (fullString.indexOf(separator) == -1) {
+				fullArray.push(fullString);
+			} else {
+				fullArray = fullString.split(separator);
+			}
+		}
+		return fullArray;
+	}
+
+	function parseCSSText(fullString) {
+		return JSON.parse(fullString.replace(/&quot;/g, '\"'));
+	}
+
+	let listManagerVariables = {
+		'loadingText': '{{ lang('LISTMANAGER_TOPIC_LOADING_TEXT') | escape('js') }}',
+		'fadeLength': '{{ LISTMANAGER_FADE_LENGTH }}',
+		'showPostProfile': '{{ LISTMANAGER_POST_PROFILE }}',
+		'elementRemove': {
+			'viewTopic': '{{ LISTMANAGER_ELEMENTREPLACE_VIEWTOPIC }}',
+			'createPost': '{{ LISTMANAGER_ELEMENTREPLACE_CREATEPOST }}',
+			'formSubmit': '{{ LISTMANAGER_ELEMENTREPLACE_FORMSUBMIT }}',
+			'loadDraft': '{{ LISTMANAGER_ELEMENTREPLACE_LOADDRAFT }}',
+			'postProfile': '{{ LISTMANAGER_ELEMENTREPLACE_POSTPROFILE }}'
+		},
+		'submitArray': '{{ LISTMANAGER_SUBMITARRAY }}',
+		'postReplyText': '{{ LISTMANAGER_POSTREPLYTEXT }}',
+		'postButtonsText': '{{ LISTMANAGER_POSTBUTTONSTEXT }}',
+		'nodeLocation': {
+			'postReply': listToArray('{{ LISTMANAGER_NODELOCATION_POSTREPLY }}', ','),
+			'submitButton': listToArray('{{ LISTMANAGER_NODELOCATION_SUBMITBUTTON }}', ','),
+			'postButtons': listToArray('{{ LISTMANAGER_NODELOCATION_POSTBUTTONS }}', ',')
+		},
+		'nodeArrayCSS': {
+			'bgFadeElementOut': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTOUT }}'),
+			'bgFadeElementIn': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTIN }}'),
+			'viewPostElement': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_VIEWPOSTELEMENT }}'),
+			'newPostElement': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_NEWPOSTELEMENT }}'),
+			'formSubmitElement': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_FORMSUBMITELEMENT }}'),
+			'postProfileElement': parseCSSText('{{ LISTMANAGER_NODEARRAYCSS_POSTPROFILEELEMENT }}')
+		}
+	};
+</script>

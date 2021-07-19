@@ -38,13 +38,13 @@ class main_listener implements EventSubscriberInterface
 
 	/* @var \phpbb\template\template */
 	protected $template;
-	
+
 	/* @var \phpbb\request\request */
 	protected $request;
-	
+
 	/* @var \adrianb11\listmanager\core\boards */
 	protected $boards;
-	
+
 	/* @var \phpbb\auth\auth */
 	protected $auth;
 
@@ -67,7 +67,7 @@ class main_listener implements EventSubscriberInterface
 		$this->boards	= $boards;
 		$this->auth		= $auth;
 	}
-	
+
 	/**
      * Load the language file
      *
@@ -123,7 +123,7 @@ class main_listener implements EventSubscriberInterface
 
 		// Permissions
 		$permissions = $event['permissions'];
-		
+
 		// Admin Permissions
 		$permissions['a_adrianb11_listmanager_manage'] 						= ['lang' => 'ACL_A_LISTMANAGER_MANAGE', 'cat' => 'listmanager'];
 
@@ -137,14 +137,17 @@ class main_listener implements EventSubscriberInterface
 		$event['categories'] = $categories;
 		$event['permissions'] = $permissions;
 	}
-	
+
 	/**
 	 * Displays board in forum
 	 */
 	public function display_board()
 	{
-		$forum_id = $this->request->variable('f', '999');
-		
-		$this->boards->render_board($forum_id);
+		$forum_id = $this->request->variable('f', 'NOTLIST');
+
+		if ($forum_id != 'NOTLIST')
+		{
+			$this->boards->render_board($forum_id);
+		}
 	}
 }

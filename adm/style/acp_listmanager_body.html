@@ -34,6 +34,212 @@
 				</label>
 			</dd>
 		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_DEFAULT_QTY_CARDS') ~ lang('COLON') }}</label>
+			</dt>
+			<dd>
+				<input type="number" id="adrianb11_listmanager_default_qty_cards" name="adrianb11_listmanager_default_qty_cards" value="{{ LISTMANAGER_DEFAULT_QTY_CARDS }}" />
+			</dd>
+		</dl>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>{{ lang('ACP_LISTMANAGER_THEME_SETTINGS') }}</legend>
+		<dl>
+			{{ lang('ACP_LISTMANAGER_THEME_SETTINGS_DESCRIPTION') }}
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_FADE_LENGTH') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_FADE_LENGTH_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<input type="number" id="adrianb11_listmanager_fadelength" name="adrianb11_listmanager_fadelength" value="{{ LISTMANAGER_FADE_LENGTH }}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTOUT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTOUT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_bgfadeelementout" name="adrianb11_listmanager_nodearraycss_bgfadeelementout">{{ LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTOUT }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTIN') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTIN_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_bgfadeelementin" name="adrianb11_listmanager_nodearraycss_bgfadeelementin">{{ LISTMANAGER_NODEARRAYCSS_BGFADEELEMENTIN }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_POST_PROFILE') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_POST_PROFILE_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<label>
+					<input type="radio" class="radio" id="adrianb11_listmanager_postprofile" name="adrianb11_listmanager_postprofile" value="1" {% if LISTMANAGER_POST_PROFILE %} checked="checked"{% endif %} /> {{ lang('YES') }}
+				</label>
+				<label>
+					<input type="radio" class="radio" name="adrianb11_listmanager_postprofile" value="0" {% if not LISTMANAGER_POST_PROFILE %} checked="checked"{% endif %} /> {{ lang('NO') }}
+				</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_POSTPROFILE') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_POSTPROFILE_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_elementreplace_postprofile" name="adrianb11_listmanager_elementreplace_postprofile">{{ LISTMANAGER_ELEMENTREPLACE_POSTPROFILE }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_POSTPROFILEELEMENT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_POSTPROFILEELEMENT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_postprofileelement" name="adrianb11_listmanager_nodearraycss_postprofileelement">{{ LISTMANAGER_NODEARRAYCSS_POSTPROFILEELEMENT }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_VIEWTOPIC') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_VIEWTOPIC_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_elementreplace_viewtopic" name="adrianb11_listmanager_elementreplace_viewtopic">{{ LISTMANAGER_ELEMENTREPLACE_VIEWTOPIC }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_VIEWPOSTELEMENT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_VIEWPOSTELEMENT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_viewpostelement" name="adrianb11_listmanager_nodearraycss_viewpostelement">{{ LISTMANAGER_NODEARRAYCSS_VIEWPOSTELEMENT }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_CREATEPOST') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_CREATEPOST_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_elementreplace_createpost" name="adrianb11_listmanager_elementreplace_createpost">{{ LISTMANAGER_ELEMENTREPLACE_CREATEPOST }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_NEWPOSTELEMENT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_NEWPOSTELEMENT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_newpostelement" name="adrianb11_listmanager_nodearraycss_newpostelement">{{ LISTMANAGER_NODEARRAYCSS_NEWPOSTELEMENT }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_FORMSUBMIT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_FORMSUBMIT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_elementreplace_formsubmit" name="adrianb11_listmanager_elementreplace_formsubmit">{{ LISTMANAGER_ELEMENTREPLACE_FORMSUBMIT }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_SUBMITARRAY') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_SUBMITARRAY_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_submitarray" name="adrianb11_listmanager_submitarray">{{ LISTMANAGER_SUBMITARRAY }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODELOCATION_SUBMITBUTTON') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODELOCATION_SUBMITBUTTON_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodelocation_submitbutton" name="adrianb11_listmanager_nodelocation_submitbutton">{{ LISTMANAGER_NODELOCATION_SUBMITBUTTON }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_FORMSUBMITELEMENT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODEARRAYCSS_FORMSUBMITELEMENT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodearraycss_formsubmitelement" name="adrianb11_listmanager_nodearraycss_formsubmitelement">{{ LISTMANAGER_NODEARRAYCSS_FORMSUBMITELEMENT }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_LOADDRAFT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_ELEMENTREPLACE_LOADDRAFT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_elementreplace_loaddraft" name="adrianb11_listmanager_elementreplace_loaddraft">{{ LISTMANAGER_ELEMENTREPLACE_LOADDRAFT }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_POSTREPLYTEXT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_POSTREPLYTEXT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_postreplytext" name="adrianb11_listmanager_postreplytext">{{ LISTMANAGER_POSTREPLYTEXT }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODELOCATION_POSTREPLY') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODELOCATION_POSTREPLY_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodelocation_postreply" name="adrianb11_listmanager_nodelocation_postreply">{{ LISTMANAGER_NODELOCATION_POSTREPLY }}</textarea>
+			</dd>
+		</dl>
+		<hr />
+
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_POSTBUTTONSTEXT') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_POSTBUTTONSTEXT_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_postbuttonstext" name="adrianb11_listmanager_postbuttonstext">{{ LISTMANAGER_POSTBUTTONSTEXT }}</textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{{ lang('ACP_LISTMANAGER_NODELOCATION_POSTBUTTONS') ~ lang('COLON') }}</label><br />
+				<span>{{ lang('ACP_LISTMANAGER_NODELOCATION_POSTBUTTONS_DEFAULT') }}</span>
+			</dt>
+			<dd>
+				<textarea id="adrianb11_listmanager_nodelocation_postbuttons" name="adrianb11_listmanager_nodelocation_postbuttons">{{ LISTMANAGER_NODELOCATION_POSTBUTTONS }}</textarea>
+			</dd>
+		</dl>
 	</fieldset>
 
 	<fieldset class="submit-buttons">

@@ -17,10 +17,6 @@
 	padding: 10px 5px 10px 5px;
 }
 
-.list-manager-card {
-	padding-left: 10px !important;
-}
-
 .margin-right {
 	margin-right: 0px !important;
 }
@@ -31,7 +27,7 @@
 	height: 25px;
 }
 
-.list-manager-view-card-body {
+.list-manager-card-body {
 	border: 1px solid transparent;
 	display: none;
 	left: 0;
@@ -48,13 +44,17 @@
 	overflow-y: auto;
 }
 
-#list-manager-view-card {
+.list-manager-card {
+	padding-left: 10px !important;
+}
+
+#list-manager-card {
 	display: block;
 	position: relative;
 	z-index: 44;
 }
 
-#list-manager-view-card-bg {
+#list-manager-card-bg {
 	position: fixed;
 	left: 0;
 	top: 0;

@@ -28,21 +28,11 @@ services:
         class: adrianb11\listmanager\core\boards
         arguments:
             - '@template'
+            - '@content.visibility'
             - '@auth'
+            - '@user'
             - '@dbal.conn'
-            - '%core.root_path%'
-            
-    adrianb11.listmanager.controller.card:
-        class: adrianb11\listmanager\controller\card_controller
-        arguments:
-            - '@controller.helper'
-            - '@template'
+            - '@cache'
+            - '@config'
             - '%core.root_path%'
             - '%core.php_ext%'
-            - '@user'
-            - '@auth'
-            - '@request'
-            - '@content.visibility'
-            - '@dbal.conn'
-            - '@config'
-            - '@cache'

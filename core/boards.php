@@ -76,8 +76,8 @@ class boards
 			$sql_from = FORUMS_TABLE . ' f';
 
 			$sql = "SELECT f.*
-		FROM $sql_from
-		WHERE f.forum_id = $id";
+			FROM $sql_from
+			WHERE f.forum_id = $id AND listmanager_isboard = 1";
 			$result = $this->db->sql_query($sql);
 			$forum_data = $this->db->sql_fetchrow($result);
 			$this->db->sql_freeresult($result);

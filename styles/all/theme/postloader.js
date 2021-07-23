@@ -62,7 +62,6 @@ $(document).ready(function() {
 
 			// Remove post profile?
 			if(listManagerVariables.showPostProfile === '0') {
-				console.log("if - " + listManagerVariables.showPostProfile);
 				$(this).find(listManagerVariables.elementRemove.postProfile).remove();
 				modifyCSS('postProfileElement', $(this));
 			}

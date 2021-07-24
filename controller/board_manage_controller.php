@@ -78,7 +78,9 @@ class board_manage_controller
 		// Add user delete permission
 		$this->template->assign_var('ACL_DELETE_BOARD', $this->auth->acl_get('u_adrianb11_listmanager_manage_boards_delete'));
 
-		$current_boards = $this->get_boards(append_sid("{$this->root_path}viewforum.{$this->php_ext}"));
+		$rowset = $this->select_forum_sql();
+
+		$current_boards = $this->get_boards($rowset, append_sid("{$this->root_path}viewforum.{$this->php_ext}"));
 
 		if (!empty($current_boards))
 		{
@@ -99,7 +101,7 @@ class board_manage_controller
 		// Is user allowed to add boards?
 		if ($this->auth->acl_get('u_adrianb11_listmanager_manage_boards_add') == true)
 		{
-			$forum_box = $this->make_forum_select(false);
+			$forum_box = $this->make_forum_select($rowset, false);
 
 			$this->template->assign_vars([
 				'CATEGORY_BOX'	=> $forum_box,
@@ -251,24 +253,12 @@ class board_manage_controller
 	/**
 	 * Simple modified version of jumpbox, just lists authed forums
 	 *
+	 * @param      $rowset
 	 * @param bool $return_array
 	 * @return array|string
 	 */
-	function make_forum_select($return_array = false)
+	function make_forum_select($rowset, $return_array = false)
 	{
-		// This query is identical to the jumpbox one
-		$sql = 'SELECT forum_id, forum_name, forum_desc, parent_id, forum_type, forum_flags, forum_options, left_id, right_id, listmanager_isboard
-			FROM ' . FORUMS_TABLE . '
-			ORDER BY left_id ASC';
-		$result = $this->db->sql_query($sql);
-
-		$rowset = array();
-		while ($row = $this->db->sql_fetchrow($result))
-		{
-			$rowset[(int) $row['forum_id']] = $row;
-		}
-		$this->db->sql_freeresult($result);
-
 		$right = 0;
 		$padding_store = array('0' => '');
 		$padding = '';
@@ -333,10 +323,11 @@ class board_manage_controller
 	/**
 	 * Get list of current boards
 	 *
+	 * @param $forumlist
 	 * @param $action
 	 * @return array
 	 */
-	function get_boards($action)
+	function get_boards($forumlist, $action)
 	{
 		// This query is identical to the jumpbox one
 		$sql = 'SELECT forum_id, forum_name, forum_desc, parent_id, forum_type, forum_flags, forum_options, left_id, listmanager_isboard
@@ -355,6 +346,14 @@ class board_manage_controller
 
 		foreach ($rowset as $row)
 		{
+			// Prepend parent forums name to row
+			$parent_id = $row['parent_id'];
+			while ($parent_id > 0)
+			{
+				$rowset[$row['forum_id']]['forum_name'] = $forumlist[$parent_id]['forum_name'] . ' > ' . $rowset[$row['forum_id']]['forum_name'];
+				$parent_id = $forumlist[$parent_id]['parent_id'];
+			}
+
 			// Check if user can see forum
 			if (!$this->auth->acl_gets('f_list', $row['forum_id']))
 			{
@@ -364,6 +363,28 @@ class board_manage_controller
 
 			$rowset[$row['forum_id']]['forum_url'] = $this->path_helper->append_url_params($action, array('f' => $row['forum_id']));
 		}
+		return $rowset;
+	}
+
+	/**
+	 * Get array of all forums.
+	 *
+	 * @return array
+	 */
+	function select_forum_sql()
+	{
+		$sql = 'SELECT forum_id, forum_name, forum_desc, parent_id, forum_type, forum_flags, forum_options, left_id, right_id, listmanager_isboard
+			FROM ' . FORUMS_TABLE . '
+			ORDER BY left_id ASC';
+		$result = $this->db->sql_query($sql);
+
+		$rowset = array();
+		while ($row = $this->db->sql_fetchrow($result))
+		{
+			$rowset[(int) $row['forum_id']] = $row;
+		}
+		$this->db->sql_freeresult($result);
+
 		return $rowset;
 	}
 }

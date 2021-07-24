@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.1.4](https://github.com/adrianb11/phpbb_listmanager/tree/v0.1.4) (2021-07-19)
+
+###Added
+- Added full forum name including parents to board manager.
+
+###Fixed
+- Added additional CSS to apply when removing post profile to fix Online banner obscuring buttons.
+- Changed default values of nodelocation_postreply and nodelocation_postbuttons to fix page refreshing issue. 
+- Added clause to SQL statement to only display listmanager if board has listmanager_isboard set to true.
+
+[Full Changelog](https://github.com/adrianb11/phpbb_listmanager/compare/v0.1.3...v0.1.4)
+
 ## [v0.1.3](https://github.com/adrianb11/phpbb_listmanager/tree/v0.1.3) (2021-07-19)
 
 ###Added
